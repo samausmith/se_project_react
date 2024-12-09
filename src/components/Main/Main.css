@@ -1,7 +1,12 @@
 .cards {
+  margin: 40px 0 0;
 }
 
 .cards__text {
+  font-size: 20px;
+  line-height: 24.8px;
+  padding: 0 0 34px;
+  margin: 0;
 }
 
 .cards__list {

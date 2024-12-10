@@ -9,11 +9,10 @@ import { getCoordinates, APIkey } from "../../utils/constants";
 import Footer from "../Footer/Footer";
 
 function App() {
-  const [radioSelected, setRadioSelected] = useState("");
-  const [coordinates, setCoordinates] = useState({
-    latitude: "",
-    longitude: "",
-  });
+  // const [coordinates, setCoordinates] = useState({
+  //  latitude: "",
+  // longitude: "",
+  //});
   const [weatherData, setWeatherData] = useState({
     type: "",
     temp: { F: 999 },
@@ -28,10 +27,6 @@ function App() {
     }
   };
 
-  const handleRadioBtn = (evt) => {
-    setRadioSelected(evt.target.id);
-  };
-
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
@@ -44,7 +39,6 @@ function App() {
   const closeModal = () => {
     setActiveModal("");
   };
-  debugger;
 
   useEffect(() => {
     getCoordinates()
@@ -83,6 +77,7 @@ function App() {
         activeModal={activeModal}
         closeModal={closeModal}
         handleOverlayClose={handleOverlayClose}
+        isOpen={activeModal === "add-garment"}
       >
         <label htmlFor="name" className="modal__label">
           Name{" "}
@@ -91,6 +86,7 @@ function App() {
             type="text"
             placeholder="Name"
             className="modal__input"
+            required
           />
         </label>
         <label htmlFor="imgUrl" className="modal__label">
@@ -100,17 +96,17 @@ function App() {
             type="url"
             placeholder="Image URL"
             className="modal__input"
+            required
           />
         </label>
         <fieldset className="modal__radio-btns">
           <legend className="modal__legend">Select the weather type:</legend>
           <label htmlFor="hot" className="modal__label modal__label_type_radio">
             <input
+              name="weather-type"
               id="hot"
               type="radio"
               className="modal__radio-input"
-              onChange={handleRadioBtn}
-              disabled={radioSelected && radioSelected !== "hot"}
             />{" "}
             Hot
           </label>
@@ -119,11 +115,10 @@ function App() {
             className="modal__label modal__label_type_radio"
           >
             <input
+              name="weather-type"
               id="warm"
               type="radio"
               className="modal__radio-input"
-              onChange={handleRadioBtn}
-              disabled={radioSelected && radioSelected !== "warm"}
             />{" "}
             Warm
           </label>
@@ -132,11 +127,10 @@ function App() {
             className="modal__label modal__label_type_radio"
           >
             <input
+              name="weather-type"
               id="cold"
               type="radio"
               className="modal__radio-input"
-              onChange={handleRadioBtn}
-              disabled={radioSelected && radioSelected !== "cold"}
             />{" "}
             Cold
           </label>

@@ -45,17 +45,8 @@
   display: flex;
   align-items: center;
   gap: 11px;
-  /*color: #00000080;*/
 }
 
 .modal__label_type_radio:last-child {
   margin-bottom: 0;
-}
-
-.modal__radio-input {
-  /* color: #00000080; */
-}
-
-.modal__radio-input:checked {
-  /* color: #000000; */
 }

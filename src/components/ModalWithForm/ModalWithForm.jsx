@@ -7,10 +7,11 @@ function ModalWithForm({
   activeModal,
   closeModal,
   handleOverlayClose,
+  isOpen,
 }) {
   return (
     <div
-      className={`modal ${activeModal === "add-garment" && "modal_open"}`}
+      className={`modal ${isOpen && "modal_open"}`}
       onMouseDown={handleOverlayClose}
     >
       <div className="modal__content">

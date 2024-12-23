@@ -101,6 +101,24 @@
       "name": "T-Shirt",
       "weather": "hot",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
+    },
+    {
+      "name": "Spidey-flops",
+      "weather": "hot",
+      "imageUrl": "https://i.ebayimg.com/images/g/kN8AAOSwwyFemnL5/s-l1200.jpg",
+      "_id": 18
+    },
+    {
+      "name": "Beanie",
+      "weather": "cold",
+      "imageUrl": "https://underarmour.scene7.com/is/image/Underarmour/V5-1380009-002_SLB_SL?rp=standard-0pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=F0F0F0&wid=566&hei=708&size=566%2C708",
+      "_id": 22
+    },
+    {
+      "name": "Spidey-boots",
+      "weather": "cold",
+      "imageUrl": "https://www.famousfootwear.com/blob/product-images/20000/41/62/1/41621_pair_feed800.jpg",
+      "_id": 23
     }
   ]
 }

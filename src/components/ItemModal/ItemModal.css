@@ -50,3 +50,18 @@
 .modal__weather {
   margin: 0;
 }
+
+.modal__delete-btn {
+  color: #ff4d00;
+  font-size: 20px;
+  width: 101px;
+  height: 24px;
+  margin: 0;
+  background-color: transparent;
+  border-style: none;
+  position: absolute;
+  right: 32px;
+  padding: 0;
+  cursor: pointer;
+  white-space: nowrap;
+}

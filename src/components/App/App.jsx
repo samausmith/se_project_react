@@ -11,9 +11,12 @@ import Footer from "../Footer/Footer";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
-import { getItems } from "../../utils/api";
+import { getItems, addItem, deleteItem } from "../../utils/api";
+import DeleteModal from "../DeleteModal/DeleteModal";
 
 function App() {
+  const [isDbChanged, setIsDbChanged] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [clothingItems, setClothingItems] = useState([]);
   const [currentTempUnit, setCurrentTempUnit] = useState("F");
 
@@ -29,7 +32,9 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
 
-  const onAddItem = ({ values }) => {};
+  const onAddItem = (values) => {
+    addItem(values).then(setIsDbChanged(true));
+  };
 
   const handleToggleSwitchChange = () => {
     currentTempUnit === "F" ? setCurrentTempUnit("C") : setCurrentTempUnit("F");
@@ -41,17 +46,27 @@ function App() {
     }
   };
 
+  const handleDeleteItem = (card) => {
+    deleteItem(card._id).then(setIsDbChanged(true));
+    closeModal();
+  };
+
+  const handleDeleteBtnClick = () => {
+    setActiveModal("delete-modal");
+  };
+
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
   };
   const handleAddClick = () => {
-    console.log("button clicked");
     setActiveModal("add-garment");
+    setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setActiveModal("");
+    setIsModalOpen(false);
   };
 
   useEffect(() => {
@@ -74,9 +89,10 @@ function App() {
     getItems()
       .then((data) => {
         setClothingItems(data);
+        setIsDbChanged(false);
       })
       .catch(console.error);
-  }, []);
+  }, [isDbChanged]);
 
   //useEffect(() => {
   // getWeather(coordinates, APIkey)
@@ -122,12 +138,21 @@ function App() {
           closeModal={closeModal}
           handleOverlayClose={handleOverlayClose}
           onAddItem={onAddItem}
+          isModalOpen={isModalOpen}
         />
         <ItemModal
           activeModal={activeModal}
           card={selectedCard}
           closeModal={closeModal}
           handleOverlayClose={handleOverlayClose}
+          handleDeleteBtnClick={handleDeleteBtnClick}
+        />
+        <DeleteModal
+          activeModal={activeModal}
+          card={selectedCard}
+          closeModal={closeModal}
+          handleOverlayClose={handleOverlayClose}
+          handleDeleteItem={handleDeleteItem}
         />
         <Footer />
       </CurrentTemperatureUnitContext.Provider>

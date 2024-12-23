@@ -7,6 +7,7 @@ const AddItemModal = ({
   closeModal,
   handleOverlayClose,
   onAddItem,
+  isModalOpen,
 }) => {
   // declare state for each input field
   const [name, setName] = useState("");
@@ -15,6 +16,11 @@ const AddItemModal = ({
 
   // use a useEffect hook to reset the input field state to empty strings when
   // the modal is opened
+  useEffect(() => {
+    setName("");
+    setUrl("");
+    setWeatherInput("");
+  }, [isModalOpen]);
 
   // create onChange handlers corresponding to each state variable
   const handleNameChange = (evt) => {
@@ -26,15 +32,15 @@ const AddItemModal = ({
   };
 
   const handleWeatherInputChange = (evt) => {
-    setWeatherInput(evt.target.value);
+    setWeatherInput(evt.target.id);
   };
 
-  function handleSubmit(e) {
+  function handleSubmit(evt) {
     // prevent default behavior
     evt.preventDefault();
     // call onAddItem with appropriate arguments
-    onAddItem({ name, url });
-    closeModal;
+    onAddItem({ name, weather: weatherInput, imageUrl: url });
+    closeModal();
   }
 
   return (
@@ -64,6 +70,7 @@ const AddItemModal = ({
         <input
           id="imgUrl"
           type="url"
+          value={url}
           placeholder="Image URL"
           className="modal__input"
           onChange={handleUrlChange}
@@ -79,6 +86,7 @@ const AddItemModal = ({
             type="radio"
             className="modal__radio-input"
             onChange={handleWeatherInputChange}
+            value={weatherInput}
           />{" "}
           Hot
         </label>
@@ -89,6 +97,7 @@ const AddItemModal = ({
             type="radio"
             className="modal__radio-input"
             onChange={handleWeatherInputChange}
+            value={weatherInput}
           />{" "}
           Warm
         </label>
@@ -99,6 +108,7 @@ const AddItemModal = ({
             type="radio"
             className="modal__radio-input"
             onChange={handleWeatherInputChange}
+            value={weatherInput}
           />{" "}
           Cold
         </label>

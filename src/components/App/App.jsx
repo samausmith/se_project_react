@@ -15,7 +15,7 @@ import { getItems, addItem, deleteItem } from "../../utils/api";
 import DeleteModal from "../DeleteModal/DeleteModal";
 
 function App() {
-  const [isDbChanged, setIsDbChanged] = useState(false);
+  // const [isDbChanged, setIsDbChanged] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [clothingItems, setClothingItems] = useState([]);
   const [currentTempUnit, setCurrentTempUnit] = useState("F");
@@ -33,7 +33,12 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
 
   const onAddItem = (values) => {
-    addItem(values).then(setIsDbChanged(true));
+    addItem(values)
+      .then((newItem) => {
+        setClothingItems((items) => [...items, newItem]);
+      })
+      .then(closeModal())
+      .catch(console.error);
   };
 
   const handleToggleSwitchChange = () => {
@@ -47,8 +52,14 @@ function App() {
   };
 
   const handleDeleteItem = (card) => {
-    deleteItem(card._id).then(setIsDbChanged(true));
-    closeModal();
+    deleteItem(card._id)
+      .then(() => {
+        setClothingItems((items) =>
+          items.filter((item) => item._id !== card._id)
+        );
+      })
+      .then(closeModal())
+      .catch(console.error);
   };
 
   const handleDeleteBtnClick = () => {
@@ -89,10 +100,9 @@ function App() {
     getItems()
       .then((data) => {
         setClothingItems(data);
-        setIsDbChanged(false);
       })
       .catch(console.error);
-  }, [isDbChanged]);
+  }, []);
 
   //useEffect(() => {
   // getWeather(coordinates, APIkey)
@@ -126,6 +136,7 @@ function App() {
               path="/profile"
               element={
                 <Profile
+                  handleAddClick={handleAddClick}
                   handleCardClick={handleCardClick}
                   clothingItems={clothingItems}
                 />

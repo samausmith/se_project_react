@@ -119,6 +119,12 @@
       "weather": "cold",
       "imageUrl": "https://www.famousfootwear.com/blob/product-images/20000/41/62/1/41621_pair_feed800.jpg",
       "_id": 23
+    },
+    {
+      "name": "Spidey-jacket",
+      "weather": "cold",
+      "imageUrl": "https://cdn-ssl.s7.shopdisney.com/is/image/DisneyShopping/5004059245506",
+      "_id": 24
     }
   ]
 }

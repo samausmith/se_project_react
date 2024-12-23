@@ -40,7 +40,6 @@ const AddItemModal = ({
     evt.preventDefault();
     // call onAddItem with appropriate arguments
     onAddItem({ name, weather: weatherInput, imageUrl: url });
-    closeModal();
   }
 
   return (

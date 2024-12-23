@@ -30,8 +30,10 @@ What to Wear (WTWR) is a web application that implements weather API to dynamica
 ### Future Implementations
 
 - Responsive Design (mobile)
-- Wearable items function
 - More weather cards
+- User authentication
+- Wardrobe management
+- Clothing editing
 
 ### Deployment
 

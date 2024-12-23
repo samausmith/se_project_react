@@ -1,0 +1,52 @@
+.toggle__switch {
+  display: flex;
+}
+
+.toggle__switch__box {
+  width: 56px;
+  height: 28px;
+  border-radius: 20px;
+  border: 2px solid #7e7e7e;
+  cursor: pointer;
+  appearance: none;
+  position: absolute;
+  top: 43.5px;
+}
+
+.toggle__switch__slider {
+  height: 28px;
+  width: 28px;
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  top: 11.5px;
+}
+
+.toggle__switch__slider-F {
+  position: relative;
+}
+
+.toggle__switch__slider-C {
+  position: relative;
+  left: 28px;
+}
+
+.toggle__switch__text-F {
+  position: relative;
+  right: 18px;
+  font-size: 14px;
+  color: #00000080;
+  cursor: pointer;
+}
+
+.toggle__switch__text-C {
+  position: relative;
+  font-size: 14px;
+  color: #00000080;
+  cursor: pointer;
+}
+
+.toggle__switch__text_active {
+  color: white;
+}

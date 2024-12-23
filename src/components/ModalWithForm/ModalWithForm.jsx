@@ -8,6 +8,7 @@ function ModalWithForm({
   closeModal,
   handleOverlayClose,
   isOpen,
+  onSubmit,
 }) {
   return (
     <div
@@ -21,7 +22,7 @@ function ModalWithForm({
           type="button"
           className="modal__close"
         ></button>
-        <form action="" className="modal__form">
+        <form action="" className="modal__form" onSubmit={onSubmit}>
           {children}
           <button type="submit" className="modal__submit">
             {buttonText}

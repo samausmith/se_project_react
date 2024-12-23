@@ -12,7 +12,7 @@ function Header({ handleAddClick, weatherData }) {
 
   return (
     <header className="header">
-      <Link to="/se_project_react">
+      <Link to="/">
         <img src={logo} alt="logo" className="header__logo" />
       </Link>
 
@@ -30,7 +30,7 @@ function Header({ handleAddClick, weatherData }) {
         </button>
       </div>
 
-      <Link to="/se_project_react/profile" className="header__link">
+      <Link to="/profile" className="header__link">
         <div className="header__user-container">
           <p className="header__username">Peter Parker</p>
           <img src={avatar} alt="Peter Parker" className="header__avatar" />

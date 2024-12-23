@@ -35,9 +35,9 @@ function App() {
   const onAddItem = (values) => {
     addItem(values)
       .then((newItem) => {
-        setClothingItems((items) => [...items, newItem]);
+        setClothingItems((items) => [newItem, ...items]);
       })
-      .then(closeModal())
+      .then(closeModal)
       .catch(console.error);
   };
 
@@ -58,7 +58,7 @@ function App() {
           items.filter((item) => item._id !== card._id)
         );
       })
-      .then(closeModal())
+      .then(closeModal)
       .catch(console.error);
   };
 

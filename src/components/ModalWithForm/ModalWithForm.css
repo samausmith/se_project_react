@@ -24,7 +24,6 @@
   position: relative;
   padding: 28px 28px 36px;
   max-width: 496px;
-  height: 436px;
   box-sizing: border-box;
   width: 100%;
   border-radius: 20px;
@@ -56,10 +55,15 @@
   cursor: pointer;
 }
 
+.modal__container-btns {
+  display: flex;
+  margin-top: 8px;
+  gap: 12px;
+}
+
 .modal__submit {
   padding: 0;
   border-style: none;
-  margin-top: 32px;
   width: 124px;
   height: 36px;
   background-color: #000000;
@@ -71,4 +75,15 @@
 
 .modal__submit:hover {
   background-color: #00000099;
+}
+
+.modal__btn {
+  border-style: none;
+  cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+  color: #00000080;
+  font-size: 16px;
+  line-height: 20px;
+  height: 36px;
 }

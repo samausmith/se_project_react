@@ -10,17 +10,31 @@
   transform: scale(1.1);
 }
 
-.card__name {
+.card__header {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
   margin: 0;
   position: absolute;
   top: 15px;
   font-size: 16px;
   line-height: 20px;
   color: #00000099;
-  background-color: white;
-  border-radius: 4px;
-  padding: 2px 12px;
   text-align: center;
+  align-items: center;
+}
+
+.card__name {
+  background-color: white;
+  padding: 2px 12px;
+  font-size: 16px;
+  margin: 0px;
+  border-radius: 4px;
+}
+
+.card__like-btn {
+  width: 18px;
+  height: 15px;
 }
 
 .card__img {

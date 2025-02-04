@@ -1,6 +1,7 @@
 import "./ModalWithForm.css";
 
 function ModalWithForm({
+  buttonTextA,
   children,
   buttonText,
   title,
@@ -24,9 +25,14 @@ function ModalWithForm({
         ></button>
         <form action="" className="modal__form" onSubmit={onSubmit}>
           {children}
-          <button type="submit" className="modal__submit">
-            {buttonText}
-          </button>
+          <div className="modal__container-btns">
+            <button type="submit" className="modal__submit">
+              {buttonText}
+            </button>
+            <button type="button" className="modal__btn">
+              {buttonTextA}
+            </button>
+          </div>
         </form>
       </div>
     </div>

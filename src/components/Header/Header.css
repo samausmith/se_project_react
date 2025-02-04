@@ -59,6 +59,7 @@
   height: 40px;
   width: 40px;
 }
+
 .header__avatar-placeholder {
   width: 40px;
   height: 40px;
@@ -70,8 +71,7 @@
   align-items: center;
   background-color: #00000033;
   color: white;
-  border-color: #00000080;
-  border-width: 1px;
+  border: 1px solid #00000080;
 }
 
 .header__add-user-btn {

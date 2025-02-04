@@ -18,12 +18,14 @@ const ClothesSection = ({ handleCardClick, clothingItems, handleAddClick }) => {
       <ul className="clothesSection__cards-list">
         {clothingItems.map((card) => {
           const isOwn = card.owner === currentUser._id;
-          isOwn && (
-            <ItemCard
-              key={card._id}
-              card={card}
-              handleCardClick={handleCardClick}
-            />
+          return (
+            isOwn && (
+              <ItemCard
+                key={card._id}
+                card={card}
+                handleCardClick={handleCardClick}
+              />
+            )
           );
         })}
       </ul>

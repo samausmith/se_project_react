@@ -8,6 +8,7 @@ const LoginModal = ({
   handleOverlayClose,
   handleLogin,
   isModalOpen,
+  handleRegisterClick,
 }) => {
   // declare state for each input field
   const [email, setEmail] = useState("");
@@ -46,6 +47,7 @@ const LoginModal = ({
       handleOverlayClose={handleOverlayClose}
       isOpen={activeModal === "login"}
       onSubmit={handleSubmit}
+      buttonClickHandler={handleRegisterClick}
     >
       <label htmlFor="email" className="modal__label">
         Email{" "}

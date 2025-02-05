@@ -17,7 +17,13 @@ import Footer from "../Footer/Footer";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
-import { getItems, addItem, deleteItem } from "../../utils/api";
+import {
+  getItems,
+  addItem,
+  deleteItem,
+  addCardLike,
+  removeCardLike,
+} from "../../utils/api";
 import DeleteModal from "../DeleteModal/DeleteModal";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import ProtectedRoute from "../../contexts/ProtectedRoute";
@@ -52,30 +58,41 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
 
   //Handlers
-  const handleCardLike = ({ id, isLiked }) => {
+  const handleLogOutClick = () => {
+    localStorage.removeItem("jwt");
+    navigate("/");
+    setIsLoggedIn(false);
+  };
+
+  const handleCardLike = (card, isLiked) => {
     const token = localStorage.getItem("jwt");
     // Check if this card is not currently liked
     !isLiked
       ? // if so, send a request to add the user's id to the card's likes array
-        api
-          // the first argument is the card's id
-          .addCardLike(id, token)
+
+        // the first argument is the card's id
+        addCardLike(card._id, token)
           .then((updatedCard) => {
             setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? updatedCard : item))
+              cards.map((item) => (item._id === card._id ? updatedCard : item))
             );
           })
           .catch((err) => console.log(err))
       : // if not, send a request to remove the user's id from the card's likes array
-        api
-          // the first argument is the card's id
-          .removeCardLike(id, token)
+
+        // the first argument is the card's id
+        removeCardLike(card._id, token)
           .then((updatedCard) => {
             setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? updatedCard : item))
+              cards.map((item) => (item._id === card._id ? updatedCard : item))
             );
           })
           .catch((err) => console.log(err));
+  };
+
+  const handleChangeProfileClick = () => {
+    setActiveModal("edit-profile");
+    setIsModalOpen(true);
   };
 
   const onAddItem = (values) => {
@@ -89,6 +106,7 @@ function App() {
 
   const handleEditProfile = ({ name, avatar }) => {
     auth.editProfile({ token, name, avatar }).catch(console.error);
+    closeModal();
   };
 
   const handleLogin = ({ email, password }) => {
@@ -119,7 +137,7 @@ function App() {
         .then(() => {
           // TODO: handle succesful registration
 
-          handleLogin({ name, password });
+          handleLogin({ email, password });
           closeModal();
         })
         .catch(console.error);
@@ -256,6 +274,8 @@ function App() {
                       handleAddClick={handleAddClick}
                       handleCardClick={handleCardClick}
                       clothingItems={clothingItems}
+                      handleChangeProfileClick={handleChangeProfileClick}
+                      handleLogOutClick={handleLogOutClick}
                     />
                   </ProtectedRoute>
                 }
@@ -275,6 +295,7 @@ function App() {
             closeModal={closeModal}
             handleOverlayClose={handleOverlayClose}
             isModalOpen={isModalOpen}
+            handleRegisterClick={handleRegisterClick}
           />
           <RegisterModal
             handleRegistration={handleRegistration}

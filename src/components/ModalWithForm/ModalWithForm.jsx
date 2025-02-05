@@ -10,6 +10,7 @@ function ModalWithForm({
   handleOverlayClose,
   isOpen,
   onSubmit,
+  buttonClickHandler,
 }) {
   return (
     <div
@@ -29,7 +30,11 @@ function ModalWithForm({
             <button type="submit" className="modal__submit">
               {buttonText}
             </button>
-            <button type="button" className="modal__btn">
+            <button
+              onClick={buttonClickHandler}
+              type="button"
+              className="modal__btn"
+            >
               {buttonTextA}
             </button>
           </div>

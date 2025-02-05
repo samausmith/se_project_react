@@ -18,6 +18,7 @@ function Main({ weatherData, handleCardClick, clothingItems, onCardLike }) {
         <ul className="cards__list">
           {clothingItems
             .filter((card) => {
+              console.log(card);
               return card.weather === weatherData.type;
             })
             .map((card) => {

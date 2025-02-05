@@ -19,6 +19,8 @@ function Header({
     day: "numeric",
   });
 
+  const placeHolderName = currentUser.name;
+
   return (
     <header className="header">
       <Link to="/">
@@ -51,7 +53,7 @@ function Header({
               />
             ) : (
               <div className="header__avatar-placeholder">
-                {currentUser.name.charAt(0).toUpperCase()}
+                {placeHolderName.charAt(0)}
               </div>
             )}
           </div>

@@ -8,16 +8,17 @@ const EditProfileModal = ({
   handleOverlayClose,
   onAddItem,
   isModalOpen,
+  handleEditProfile,
 }) => {
   // declare state for each input field
   const [name, setName] = useState("");
-  const [url, setUrl] = useState("");
+  const [avatar, setAvatar] = useState("");
 
   // use a useEffect hook to reset the input field state to empty strings when
   // the modal is opened
   useEffect(() => {
     setName("");
-    setUrl("");
+    setAvatar("");
   }, [isModalOpen]);
 
   // create onChange handlers corresponding to each state variable
@@ -26,13 +27,13 @@ const EditProfileModal = ({
   };
 
   const handleUrlChange = (evt) => {
-    setUrl(evt.target.value);
+    setAvatar(evt.target.value);
   };
 
   function handleSubmit(evt) {
     // prevent default behavior
     evt.preventDefault();
-    handleEditProfile({ name, url });
+    handleEditProfile({ name, avatar });
   }
 
   return (
@@ -45,6 +46,7 @@ const EditProfileModal = ({
       handleOverlayClose={handleOverlayClose}
       isOpen={activeModal === "edit-profile"}
       onSubmit={handleSubmit}
+      buttonClickHandler={closeModal}
     >
       <label htmlFor="Name" className="modal__label">
         Name{" "}
@@ -63,8 +65,8 @@ const EditProfileModal = ({
         <input
           id="edit-url"
           type="text"
-          value={url}
-          placeholder="Password"
+          value={avatar}
+          placeholder="Avatar Url"
           className="modal__input"
           onChange={handleUrlChange}
           required

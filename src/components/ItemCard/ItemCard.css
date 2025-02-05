@@ -35,8 +35,15 @@
 .card__like-btn {
   width: 18px;
   height: 15px;
+  visibility: visible;
 }
 
+.card__like-btn_liked {
+  background-color: black;
+}
+
+.card__like-btn_hidden {
+}
 .card__img {
   width: 100%;
   border-radius: 20px;

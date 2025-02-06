@@ -1,3 +1,5 @@
-.login__modal {
-  display: flex;
+.modal__login-failure {
+  color: #ff4d00;
+  font-size: 16px;
+  padding-bottom: 24px;
 }

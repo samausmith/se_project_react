@@ -10,7 +10,7 @@ function ItemModal({
   handleDeleteBtnClick,
 }) {
   const { currentUser } = useContext(CurrentUserContext);
-  const isOwn = card.owner === currentUser._id;
+  const isOwn = card?.owner === currentUser?._id;
 
   return (
     <div

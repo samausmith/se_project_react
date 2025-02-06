@@ -40,6 +40,7 @@ function App() {
   const [currentTempUnit, setCurrentTempUnit] = useState("F");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
+  const [isLoginIncorrect, setIsLoginIncorrect] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -121,7 +122,10 @@ function App() {
         localStorage.setItem("jwt", data.token);
         closeModal();
       })
-      .catch(console.error);
+      .catch((error) => {
+        setIsLoginIncorrect(true);
+        console.error(error);
+      });
   };
 
   const handleRegistration = ({
@@ -290,6 +294,7 @@ function App() {
             isModalOpen={isModalOpen}
           />
           <LoginModal
+            isLoginIncorrect={isLoginIncorrect}
             handleLogin={handleLogin}
             activeModal={activeModal}
             closeModal={closeModal}

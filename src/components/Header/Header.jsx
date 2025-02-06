@@ -41,17 +41,17 @@ function Header({
               >
                 + Add clothes
               </button>
-              <p className="header__username">{currentUser.name}</p>
+              <p className="header__username">{currentUser?.name}</p>
             </div>
-            {currentUser.avatar ? (
+            {currentUser?.avatar ? (
               <img
-                src={currentUser.avatar}
-                alt={currentUser.name}
+                src={currentUser?.avatar}
+                alt={currentUser?.name}
                 className="header__avatar"
               />
             ) : (
               <div className="header__avatar-placeholder">
-                {currentUser.name && currentUser.name.charAt(0)}
+                {currentUser?.name && currentUser.name.charAt(0)}
               </div>
             )}
           </div>

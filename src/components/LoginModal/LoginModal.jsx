@@ -3,6 +3,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState, useEffect } from "react";
 
 const LoginModal = ({
+  isLoginIncorrect,
   activeModal,
   closeModal,
   handleOverlayClose,
@@ -49,6 +50,9 @@ const LoginModal = ({
       onSubmit={handleSubmit}
       buttonClickHandler={handleRegisterClick}
     >
+      {isLoginIncorrect && (
+        <div className="modal__login-failure">Incorrect Email or Password</div>
+      )}
       <label htmlFor="email" className="modal__label">
         Email{" "}
         <input

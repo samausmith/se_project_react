@@ -17,7 +17,7 @@ const ClothesSection = ({ handleCardClick, clothingItems, handleAddClick }) => {
       </div>
       <ul className="clothesSection__cards-list">
         {clothingItems.map((card) => {
-          const isOwn = card.owner === currentUser._id;
+          const isOwn = card?.owner === currentUser._id;
           return (
             isOwn && (
               <ItemCard

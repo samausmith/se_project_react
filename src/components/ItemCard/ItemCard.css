@@ -39,7 +39,8 @@
 }
 
 .card__like-btn_liked {
-  background-color: black;
+  background-image: url("../../assets/liked-btn.svg");
+  background-size: cover;
 }
 
 .card__like-btn_hidden {

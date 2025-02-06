@@ -41,6 +41,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [isLoginIncorrect, setIsLoginIncorrect] = useState(false);
+  const [registrationMessage, setRegistrationMessage] = useState("");
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -123,6 +124,7 @@ function App() {
         closeModal();
       })
       .catch((error) => {
+        setIsLoggedIn(false);
         setIsLoginIncorrect(true);
         console.error(error);
       });
@@ -145,6 +147,8 @@ function App() {
           closeModal();
         })
         .catch(console.error);
+    } else {
+      setRegistrationMessage("Passwords do not match");
     }
   };
 
@@ -303,6 +307,7 @@ function App() {
             handleRegisterClick={handleRegisterClick}
           />
           <RegisterModal
+            registrationMessage={registrationMessage}
             handleRegistration={handleRegistration}
             activeModal={activeModal}
             closeModal={closeModal}

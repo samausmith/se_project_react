@@ -1,4 +1,4 @@
-import "./RegisterModal";
+import "./RegisterModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState, useEffect } from "react";
 
@@ -8,6 +8,7 @@ const RegisterModal = ({
   handleOverlayClose,
   isModalOpen,
   handleRegistration,
+  registrationMessage,
 }) => {
   // declare state for each input field
   const [name, setName] = useState("");
@@ -123,6 +124,7 @@ const RegisterModal = ({
           required
         />
       </label>
+      <div className="modal__registration-message">{registrationMessage}</div>
     </ModalWithForm>
   );
 };

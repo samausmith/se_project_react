@@ -4,7 +4,12 @@ import { defaultClothingItems } from "../../utils/constants";
 import ItemCard from "../ItemCard/ItemCard";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-const ClothesSection = ({ handleCardClick, clothingItems, handleAddClick }) => {
+const ClothesSection = ({
+  handleCardClick,
+  clothingItems,
+  handleAddClick,
+  onCardLike,
+}) => {
   const { currentUser } = useContext(CurrentUserContext);
 
   return (
@@ -24,6 +29,7 @@ const ClothesSection = ({ handleCardClick, clothingItems, handleAddClick }) => {
                 key={card._id}
                 card={card}
                 handleCardClick={handleCardClick}
+                onCardLike={onCardLike}
               />
             )
           );

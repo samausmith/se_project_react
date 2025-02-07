@@ -118,9 +118,18 @@ function App() {
     auth
       .loginUser({ email, password })
       .then((data) => {
-        setCurrentUser(data);
-        setIsLoggedIn(true);
         localStorage.setItem("jwt", data.token);
+        if (data.token) {
+          auth
+            .getToken(data.token)
+            .then((user) => {
+              setCurrentUser(user);
+              setIsLoggedIn(true);
+            })
+            .catch((err) => {
+              console.error(err);
+            });
+        }
         closeModal();
       })
       .catch((error) => {
@@ -279,6 +288,7 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <Profile
+                      onCardLike={handleCardLike}
                       handleAddClick={handleAddClick}
                       handleCardClick={handleCardClick}
                       clothingItems={clothingItems}

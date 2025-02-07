@@ -3,6 +3,7 @@ import SideBar from "../SideBar/SideBar";
 import ClothesSection from "../ClothesSection/ClothesSection";
 
 const Profile = ({
+  onCardLike,
   handleCardClick,
   clothingItems,
   handleAddClick,
@@ -19,6 +20,7 @@ const Profile = ({
       </section>
       <section className="profile__clothes">
         <ClothesSection
+          onCardLike={onCardLike}
           handleAddClick={handleAddClick}
           handleCardClick={handleCardClick}
           clothingItems={clothingItems}

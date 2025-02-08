@@ -91,7 +91,7 @@ const RegisterModal = ({
           required
         />
       </label>
-      <label htmlFor="password" className="modal__label">
+      <label htmlFor="confirm-password" className="modal__label">
         Confirm Password*{" "}
         <input
           id="confirm-password"

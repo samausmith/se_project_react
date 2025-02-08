@@ -19,8 +19,16 @@ const EditProfileModal = ({
   // use a useEffect hook to reset the input field state to empty strings when
   // the modal is opened
   useEffect(() => {
-    setName(currentUser.name);
-    setAvatar(currentUser.avatar);
+    if (currentUser.name) {
+      setName(currentUser.name);
+    } else {
+      setName("");
+    }
+    if (currentUser.avatar) {
+      setAvatar(currentUser.avatar);
+    } else {
+      setAvatar("");
+    }
   }, [isModalOpen]);
 
   // create onChange handlers corresponding to each state variable

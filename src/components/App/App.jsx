@@ -53,7 +53,7 @@ function App() {
   //});
   const [weatherData, setWeatherData] = useState({
     type: "",
-    temp: { F: 999 },
+    temp: { F: "Loading..." },
     city: "",
   });
   const [activeModal, setActiveModal] = useState("");

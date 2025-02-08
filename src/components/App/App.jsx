@@ -26,7 +26,7 @@ import {
 } from "../../utils/api";
 import DeleteModal from "../DeleteModal/DeleteModal";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
-import ProtectedRoute from "../../contexts/ProtectedRoute";
+import ProtectedRoute from "../ProtectedRoute";
 import * as auth from "../../utils/auth";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";

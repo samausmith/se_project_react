@@ -29,7 +29,7 @@ function Header({
         {currentDate}, {weatherData.city}
       </p>
 
-      <Link to="/profile" className="header__link">
+      <div className="header__link">
         {isLoggedIn ? (
           <div className="header__link-container">
             <div className="header__buttons">
@@ -44,11 +44,13 @@ function Header({
               <p className="header__username">{currentUser?.name}</p>
             </div>
             {currentUser?.avatar ? (
-              <img
-                src={currentUser?.avatar}
-                alt={currentUser?.name}
-                className="header__avatar"
-              />
+              <Link to="/profile">
+                <img
+                  src={currentUser?.avatar}
+                  alt={currentUser?.name}
+                  className="header__avatar"
+                />
+              </Link>
             ) : (
               <div className="header__avatar-placeholder">
                 {currentUser?.name && currentUser.name.charAt(0)}
@@ -73,7 +75,7 @@ function Header({
             </button>
           </div>
         )}
-      </Link>
+      </div>
     </header>
   );
 }

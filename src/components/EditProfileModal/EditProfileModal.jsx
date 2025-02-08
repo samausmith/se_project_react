@@ -1,6 +1,7 @@
 import "./EditProfileModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 const EditProfileModal = ({
   activeModal,
@@ -13,12 +14,13 @@ const EditProfileModal = ({
   // declare state for each input field
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
+  const { currentUser } = useContext(CurrentUserContext);
 
   // use a useEffect hook to reset the input field state to empty strings when
   // the modal is opened
   useEffect(() => {
-    setName("");
-    setAvatar("");
+    setName(currentUser.name);
+    setAvatar(currentUser.avatar);
   }, [isModalOpen]);
 
   // create onChange handlers corresponding to each state variable
@@ -49,11 +51,11 @@ const EditProfileModal = ({
       buttonClickHandler={closeModal}
     >
       <label htmlFor="Name" className="modal__label">
-        Name{" "}
+        Name{""}
         <input
           id="edit-name"
           type="text"
-          placeholder="Name"
+          placeholder=""
           className="modal__input"
           value={name}
           onChange={handleNameChange}
@@ -61,12 +63,12 @@ const EditProfileModal = ({
         />
       </label>
       <label htmlFor="url" className="modal__label">
-        Avatar{" "}
+        Avatar{""}
         <input
           id="edit-url"
           type="text"
           value={avatar}
-          placeholder="Avatar Url"
+          placeholder=""
           className="modal__input"
           onChange={handleUrlChange}
           required

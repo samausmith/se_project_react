@@ -9,6 +9,7 @@ const RegisterModal = ({
   isModalOpen,
   handleRegistration,
   registrationMessage,
+  handleLoginClick,
 }) => {
   // declare state for each input field
   const [name, setName] = useState("");
@@ -56,6 +57,7 @@ const RegisterModal = ({
 
   return (
     <ModalWithForm
+      buttonTextA="or Log In"
       buttonText="Sign Up"
       title="Profile Registration"
       activeModal={activeModal}
@@ -63,6 +65,7 @@ const RegisterModal = ({
       handleOverlayClose={handleOverlayClose}
       isOpen={activeModal === "registration"}
       onSubmit={handleSubmit}
+      buttonClickHandler={handleLoginClick}
     >
       <label htmlFor="email" className="modal__label">
         Email*{" "}

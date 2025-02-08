@@ -107,7 +107,13 @@ function App() {
   };
 
   const handleEditProfile = ({ name, avatar }) => {
-    auth.editProfile({ token, name, avatar }).catch(console.error);
+    const token = localStorage.getItem("jwt");
+    auth
+      .editProfile({ token, name, avatar })
+      .then((user) => {
+        setCurrentUser(user);
+      })
+      .catch(console.error);
     closeModal();
   };
 
@@ -317,6 +323,7 @@ function App() {
             handleRegisterClick={handleRegisterClick}
           />
           <RegisterModal
+            handleLoginClick={handleLoginClick}
             registrationMessage={registrationMessage}
             handleRegistration={handleRegistration}
             activeModal={activeModal}

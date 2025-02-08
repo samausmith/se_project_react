@@ -60,6 +60,8 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
 
   //Handlers
+
+  //TODO - create universial submit handler and isLoading boolean
   const handleLogOutClick = () => {
     localStorage.removeItem("jwt");
     navigate("/");
@@ -113,8 +115,8 @@ function App() {
       .then((user) => {
         setCurrentUser(user);
       })
+      .then(closeModal)
       .catch(console.error);
-    closeModal();
   };
 
   const handleLogin = ({ email, password }) => {
@@ -132,11 +134,11 @@ function App() {
               setCurrentUser(user);
               setIsLoggedIn(true);
             })
+            .then(closeModal)
             .catch((err) => {
               console.error(err);
             });
         }
-        closeModal();
       })
       .catch((error) => {
         setIsLoggedIn(false);
@@ -156,10 +158,7 @@ function App() {
       auth
         .registerUser({ name, avatar, email, password })
         .then(() => {
-          // TODO: handle succesful registration
-
           handleLogin({ email, password });
-          closeModal();
         })
         .catch(console.error);
     } else {

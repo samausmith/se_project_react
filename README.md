@@ -1,4 +1,4 @@
-WTWR: What to Wear application
+# WTWR: What to Wear application
 
 ## Overview
 

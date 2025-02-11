@@ -1,13 +1,4 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-# Project 10: WTWR: What to Wear application
+WTWR: What to Wear application
 
 ## Overview
 
@@ -37,8 +28,8 @@ What to Wear (WTWR) is a web application that implements weather API to dynamica
 
 ### Deployment
 
-- [Link](https://samausmith.github.io/se_project_react/)
+- [Frontend](https://samausmith.github.io/se_project_react/)
 
 #### Express and MongoDB
 
-- [Link](https://github.com/samausmith/se_project_express.git)
+- [Backend](https://github.com/samausmith/se_project_express.git)

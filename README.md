@@ -9,7 +9,7 @@ WTWR: What to Wear application
 
 ### Introduction
 
-What to Wear (WTWR) is a web application that implements weather API to dynamically and automatically display the weather conditions and suitable clothing options. The application will also allow the user to add more items to the wardrobe.
+What to Wear (WTWR) is a web application that implements weather API to dynamically and automatically display the weather conditions and suitable clothing options. The application will also allow the user to add, remove, like items, and edit their profile. Users are unable to remove items if they do not own the card. Lastly, unregistered users can sign up and are automatically signed in for convenience. 
 
 ### Tech Stack
 
@@ -17,14 +17,14 @@ What to Wear (WTWR) is a web application that implements weather API to dynamica
 - Javascript
 - React
 - Weather API
+- Node.js
+- Express.js
+- MongoDB
 
 ### Future Implementations
 
 - Responsive Design (mobile)
-- More weather cards
-- User authentication
-- Wardrobe management
-- Clothing editing
+- More weather cards to display uncommon weather conditions
 
 ### Deployment
 

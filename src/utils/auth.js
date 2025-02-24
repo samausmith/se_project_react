@@ -1,5 +1,5 @@
-const baseUrl = "http://localhost:3001";
 import { checkResponse } from "./api";
+import { baseUrl } from "./constants";
 
 export function getToken(token) {
   return fetch(`${baseUrl}/users/me`, {

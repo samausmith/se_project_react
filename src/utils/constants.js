@@ -1,3 +1,8 @@
+export const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.what-to-wear.jumpingcrab.com"
+    : "http://localhost:3001";
+
 export const defaultWeatherCards = {
   day: { url: new URL("../assets/day/default.png", import.meta.url).href },
   night: { url: new URL("../assets/night/default.png", import.meta.url).href },

@@ -9,6 +9,7 @@ import {
   useNavigate,
   useLocation,
 } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
@@ -214,9 +215,23 @@ function App() {
     setActiveModal("");
     setIsModalOpen(false);
   };
+
+  function isTokenInvalid(token) {
+    if (!token) return true;
+
+    try {
+      const decoded = jwtDecode(token);
+
+      const currentTime = Date.now() / 1000;
+      return decoded.exp < currentTime;
+    } catch (error) {
+      return true;
+    }
+  }
   //useEffects
   useEffect(() => {
-    if (token) {
+    console.log(isTokenInvalid(token));
+    if (!isTokenInvalid(token)) {
       auth
         .getToken(token)
         .then((user) => {
@@ -226,6 +241,8 @@ function App() {
         .catch((err) => {
           console.error(err);
         });
+    } else {
+      setIsLoggedIn(false);
     }
   }, []);
 

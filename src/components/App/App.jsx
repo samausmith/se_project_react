@@ -230,7 +230,6 @@ function App() {
   }
   //useEffects
   useEffect(() => {
-    console.log(isTokenInvalid(token));
     if (!isTokenInvalid(token)) {
       auth
         .getToken(token)

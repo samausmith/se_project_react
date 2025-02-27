@@ -14,19 +14,13 @@ const LoginModal = ({
   // declare state for each input field
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [failedLoginClass, setFailedLoginClass] = useState(
-    "modal__login-failure"
-  );
 
   // use a useEffect hook to reset the input field state to empty strings when
   // the modal is opened
   useEffect(() => {
     setEmail("");
     setPassword("");
-    setFailedLoginClass("modal__login-failure");
   }, [isModalOpen]);
-
-  isLoginIncorrect && setFailedLoginClass("modal__login-failure-visible");
 
   // create onChange handlers corresponding to each state variable
   const handleEmailChange = (evt) => {
@@ -56,7 +50,9 @@ const LoginModal = ({
       onSubmit={handleSubmit}
       buttonClickHandler={handleRegisterClick}
     >
-      {<div className={failedLoginClass}>Incorrect Email or Password</div>}
+      {isLoginIncorrect ? (
+        <div className="modal__login-failure">Incorrect Email or Password</div>
+      ) : null}
       <label htmlFor="email" className="modal__label">
         Email{" "}
         <input

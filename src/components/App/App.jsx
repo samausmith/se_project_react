@@ -241,6 +241,7 @@ function App() {
           console.error(err);
         });
     } else {
+      localStorage.removeItem("jwt");
       setIsLoggedIn(false);
     }
   }, []);

@@ -1,6 +1,5 @@
 import "./ClothesSection.css";
 import { useContext } from "react";
-import { defaultClothingItems } from "../../utils/constants";
 import ItemCard from "../ItemCard/ItemCard";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 

@@ -1,4 +1,3 @@
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./DeleteModal.css";
 
 function DeleteModal({

@@ -7,7 +7,6 @@ const EditProfileModal = ({
   activeModal,
   closeModal,
   handleOverlayClose,
-  onAddItem,
   isModalOpen,
   handleEditProfile,
 }) => {

@@ -2,15 +2,8 @@ import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import { useEffect, useState } from "react";
-import {
-  Routes,
-  Route,
-  Navigate,
-  useNavigate,
-  useLocation,
-} from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { getCoordinates, APIkey } from "../../utils/constants";
@@ -45,8 +38,8 @@ function App() {
   const [registrationMessage, setRegistrationMessage] = useState("");
 
   const navigate = useNavigate();
-  const location = useLocation();
   const token = localStorage.getItem("jwt");
+  // const location = useLocation();
 
   // const [coordinates, setCoordinates] = useState({
   //  latitude: "",

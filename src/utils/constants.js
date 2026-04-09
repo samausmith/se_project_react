@@ -1,6 +1,6 @@
 export const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://api.what-to-wear.jumpingcrab.com"
+    ? "https://api.what-to-wear.uk"
     : "http://localhost:3001";
 
 export const defaultWeatherCards = {
@@ -120,7 +120,7 @@ export const getCoordinates = () => {
       },
       (error) => {
         reject(error);
-      }
+      },
     );
   });
 };

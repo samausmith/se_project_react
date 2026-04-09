@@ -50,3 +50,19 @@
 .modal__label_type_radio:last-child {
   margin-bottom: 0;
 }
+
+.modal__submit {
+  padding: 0;
+  border-style: none;
+  width: 124px;
+  height: 36px;
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.modal__submit:hover {
+  background-color: #00000099;
+}

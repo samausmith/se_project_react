@@ -30,10 +30,10 @@ What to Wear (WTWR) is a web application that implements weather API to dynamica
 
 ### Deployment
 
-- [Domain] (https://www.what-to-wear.jumpingcrab.com/)
+- [Domain] (https://www.what-to-wear.uk/)
 - [Frontend](https://samausmith.github.io/se_project_react/)
 
 #### Express and MongoDB
 
 - [Backend](https://github.com/samausmith/se_project_express.git)
-- [Domain](https://api.what-to-wear.jumpingcrab.com)
+- [Domain](https://api.what-to-wear.uk)
